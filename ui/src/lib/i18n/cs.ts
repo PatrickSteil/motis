@@ -45,17 +45,17 @@ const translations: Translations = {
 	platformAbr: 'Nást.',
 	trackAbr: 'K.',
 	arrivalOnTrack: 'Příjezd na kolej',
-	tripIntermediateStops: (n: number) => {
-		if (n == 0) {
-			return 'Bez mezizastávek';
-		}
-		if (n == 1) {
-			return '1 mezizastávka';
-		}
-		if (n % 10 > 1 && n % 10 < 5 && n != 12 && n != 13 && n != 14) {
-			return `${n} mezizastávky`;
-		}
-		return `${n} mezizastávek`;
+	tripIntermediateStops: (n: number, mode?: string) => {
+	    if (mode === 'AIRPLANE') {
+		if (n === 0) return 'Přímý';
+		if (n === 1) return '1 přestup';
+		if (n >= 2 && n <= 4) return `${n} přestupy`;
+		return `${n} přestupů`;
+	    }
+	    if (n === 0) return 'Bez zastávek';
+	    if (n === 1) return '1 zastávka';
+	    if (n >= 2 && n <= 4) return `${n} zastávky`;
+	    return `${n} zastávek`;
 	},
 	sharingProvider: 'Poskytovatel dat',
 	sharingProviders: 'Poskytovatelé dat',

@@ -45,15 +45,15 @@ const translations: Translations = {
 	arrivalOnTrack: 'Ankunft auf Gleis',
 	switchToArrivals: 'Wechsel zu Ankünften',
 	switchToDepartures: 'Wechsel zu Abfahrten',
-	tripIntermediateStops: (n: number) => {
-		switch (n) {
-			case 0:
-				return 'Fahrt ohne Zwischenhalt';
-			case 1:
-				return 'Fahrt eine Station';
-			default:
-				return `Fahrt ${n} Stationen`;
-		}
+	tripIntermediateStops: (n: number, mode?: string) => {
+	    if (mode === 'AIRPLANE') {
+		return n === 0 ? 'Direktflug' : `Flug mit ${n} Zwischenstopp${n === 1 ? '' : 's'}`;
+	    }
+	    switch (n) {
+		case 0: return 'Fahrt ohne Zwischenhalt';
+		case 1: return 'Fahrt eine Station';
+		default: return `Fahrt ${n} Stationen`;
+	    }
 	},
 	sharingProvider: 'Anbieter',
 	sharingProviders: 'Anbieter',

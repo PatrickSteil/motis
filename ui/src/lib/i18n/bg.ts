@@ -45,15 +45,15 @@ const translations: Translations = {
 	trackAbr: 'Кол.',
 	platformAbr: 'Перон',
 	arrivalOnTrack: 'Пристигане на коловоз',
-	tripIntermediateStops: (n: number) => {
-		switch (n) {
-			case 0:
-				return 'Без междинни спирки';
-			case 1:
-				return '1 междинна спирка';
-			default:
-				return `${n} междинни спирки`;
-		}
+	tripIntermediateStops: (n: number, mode?: string) => {
+	    if (mode === 'AIRPLANE') {
+		return n === 0 ? 'Директен полет' : `Полет с ${n} междинно кацане${n === 1 ? '' : ''}`; // TODO online translated
+	    }
+	    switch (n) {
+		case 0: return 'Без междинни спирки';
+		case 1: return '1 междинна спирка';
+		default: return `${n} междинни спирки`;
+	    }
 	},
 	sharingProvider: 'Оператор',
 	sharingProviders: 'Оператори',

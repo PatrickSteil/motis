@@ -45,17 +45,19 @@ const translations: Translations = {
 	trackAbr: 'T.',
 	platformAbr: 'Pr.',
 	arrivalOnTrack: 'Przyjazd na tor',
-	tripIntermediateStops: (n: number) => {
-		if (n == 0) {
-			return 'Brak przystanków pośrednich';
-		}
-		if (n == 1) {
-			return '1 przystanek pośredni';
-		}
-		if (n % 10 > 1 && n % 10 < 5 && n != 12 && n != 13 && n != 14) {
-			return `${n} przystanki pośrednie`;
-		}
-		return `${n} przystanków pośrednich`;
+	tripIntermediateStops: (n: number, mode?: string) => {
+	    // TODO online translated
+	    if (mode === 'AIRPLANE') {
+		if (n === 0) return 'Lot bezpośredni';
+		if (n === 1) return 'Lot z 1 przesiadką';
+		return `Lot z ${n} przesiadkami`;
+	    }
+	    if (n == 0) return 'Brak przystanków pośrednich';
+	    if (n == 1) return '1 przystanek pośredni';
+	    if (n % 10 > 1 && n % 10 < 5 && n != 12 && n != 13 && n != 14) {
+		return `${n} przystanki pośrednie`;
+	    }
+	    return `${n} przystanków pośrednich`;
 	},
 	sharingProvider: 'Dostawca danych',
 	sharingProviders: 'Dostawcy danych',

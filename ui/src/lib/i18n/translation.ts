@@ -51,7 +51,7 @@ export type Translations = {
 	platform: string;
 	trackAbr: string;
 	platformAbr: string;
-	tripIntermediateStops: (n: number) => string;
+	tripIntermediateStops: (n: number, mode?: string) => string;
 	sharingProvider: string;
 	sharingProviders: string;
 	returnOnlyAtStations: string;

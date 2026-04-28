@@ -45,15 +45,15 @@ const translations: Translations = {
 	trackAbr: 'Pl.',
 	platformAbr: 'Pl.',
 	arrivalOnTrack: 'Arrival on track',
-	tripIntermediateStops: (n: number) => {
-		switch (n) {
-			case 0:
-				return 'No intermediate stops';
-			case 1:
-				return '1 intermediate stop';
-			default:
-				return `${n} intermediate stops`;
-		}
+	tripIntermediateStops: (n: number, mode?: string) => {
+	    if (mode === 'AIRPLANE') {
+		return n === 0 ? 'Direct flight' : `Flight with ${n} stop${n === 1 ? '' : 's'}`;
+	    }
+	    switch (n) {
+		case 0: return 'No intermediate stops';
+		case 1: return '1 intermediate stop';
+		default: return `${n} intermediate stops`;
+	    }
 	},
 	sharingProvider: 'Provider',
 	sharingProviders: 'Providers',

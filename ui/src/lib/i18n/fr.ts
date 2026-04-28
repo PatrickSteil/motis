@@ -44,15 +44,15 @@ const translations: Translations = {
 	trackAbr: 'V.',
 	platformAbr: 'Q.',
 	arrivalOnTrack: 'Arrivée sur la voie',
-	tripIntermediateStops: (n: number) => {
-		switch (n) {
-			case 0:
-				return 'Aucun arrêt intermédiaire';
-			case 1:
-				return '1 arrêt intermédiaire';
-			default:
-				return `${n} arrêts intermédiaires`;
-		}
+	tripIntermediateStops: (n: number, mode?: string) => {
+	    if (mode === 'AIRPLANE') {
+		return n === 0 ? 'Vol direct' : `Vol avec ${n} escale${n === 1 ? '' : 's'}`;
+	    }
+	    switch (n) {
+		case 0: return 'Aucun arrêt intermédiaire';
+		case 1: return '1 arrêt intermédiaire';
+		default: return `${n} arrêts intermédiaires`;
+	    }
 	},
 	sharingProvider: 'Fournisseur',
 	sharingProviders: 'Fournisseurs',
