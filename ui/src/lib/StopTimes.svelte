@@ -120,7 +120,7 @@
 			/>
 
 			<div
-				class="gap-y-2 p-3 w-full text-base grid grid-cols-[auto_1fr] border-b duration-500 ease-out transition-all"
+				class="gap-y-2 p-3 w-full text-base grid grid-cols-[auto_minmax(0,1fr)] border-b duration-500 ease-out transition-all"
 			>
 				<div class="flex flex-col w-24">
 					<Time
@@ -150,7 +150,7 @@
 						{arriveBy}
 					/>
 				</div>
-				<div class="flex-col text-base">
+				<div class="flex-col min-w-0 text-base">
 					<div class="flex justify-between">
 						<Route class="text-ellipsis mb-2" l={stopTime} {onClickTrip} />
 						{#if stopTime.place.track}

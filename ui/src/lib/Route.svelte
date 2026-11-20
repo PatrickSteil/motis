@@ -19,12 +19,13 @@
 
 <button
 	class={cn(
-		'flex items-center text-nowrap rounded-full font-bold',
+		'flex items-center min-w-0 max-w-full text-nowrap rounded-full font-bold',
 		compact ? 'pl-1.5 pr-0.5 h-6 text-xs' : 'pl-2 pr-1 h-8',
 		l.displayName ? (compact ? 'pr-2' : 'pr-3') : undefined,
 		className
 	)}
 	style={routeColor(l)}
+	title={l.displayName}
 	onclick={() => {
 		if (l.tripId) {
 			onClickTrip(l.tripId);
@@ -41,7 +42,7 @@
 	>
 		<use xlink:href={`#${modeIcon}`}></use>
 	</svg>
-	<div class="text-center">
+	<div class="min-w-0 truncate text-center">
 		{l.displayName}
 	</div>
 </button>
